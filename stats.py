@@ -7,10 +7,13 @@ def count_characters(words):
     character_list = list(words)
     character_count = {}
     for character in character_list:
-        if character_count[character] == None:
-            character_count[character] = 1
+        if character.lower() not in character_count:
+            character_count[character.lower()] = 1
         else:
-            character_count[character] += 1
+            character_count[character.lower()] += 1
     return character_count
 
-print(count_characters("Hello there friendo!"))
+def sort_char(char_list):
+    sorted_char_list = {key: val for key, val in sorted(char_list.items(), key = lambda ele: ele[1], reverse = True)}
+
+    return sorted_char_list
